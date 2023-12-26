@@ -79,7 +79,7 @@ body {
 #credit {
     position: absolute;
     color: white;
-    opacity: 0.25;
+    opacity: 1.00;
     z-index: 4;
     text-align: center;
     min-width: 100%;
