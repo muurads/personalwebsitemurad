@@ -65,13 +65,13 @@ body {
     overflow: hidden;
 }
 
-#discord, #ig, #ogu {
+#x, #ig, #ogu {
     padding: 1em;
     height: 4em;
     transition: scale 200ms;
 }
 
-#discord:hover, #ig:hover, #ogu:hover {
+#x:hover, #ig:hover, #ogu:hover {
     padding: 1em;
     scale: 1.05;
 }
