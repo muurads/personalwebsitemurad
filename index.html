@@ -10,6 +10,9 @@
 </head>
 <body>
     <!-- made by murad cajee -->
+    <div id="overlay">
+        <p id="entertext">Click to enter...</p>
+    </div>
     <div id="socials">
         <a href="https://twitter.com/muurads" target="_blank">
             <img id="x" src="/assets/x.svg">
@@ -32,8 +35,14 @@
             loop: true
         });
 
-        // Play sound automatically on page load
-        sound.play();
+        const overlay = document.getElementById('overlay');
+        overlay.addEventListener('click', () => {
+            sound.play();
+            overlay.classList.add('hidden');
+            setTimeout(() => {
+                overlay.style.zIndex = 0; 
+            }, 1250);
+        });
     </script>
     <!-- made by murad cajee -->
 </body>
