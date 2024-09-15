@@ -10,9 +10,6 @@
 </head>
 <body>
     <!-- made by murad cajee -->
-    <div id="overlay">
-        <p id="entertext">Click to enter...</p>
-    </div>
     <div id="socials">
         <a href="https://twitter.com/muurads" target="_blank">
             <img id="x" src="/assets/x.svg">
@@ -25,8 +22,7 @@
         </a>
     </div>
     <div id="credit">
-            <p id="creditText">#murad</p>
-        </a>
+        <p id="creditText">#murad</p>
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
     <script>
@@ -36,19 +32,8 @@
             loop: true
         });
 
-        const divElements = document.getElementsByTagName('div');
-        divElements[0].addEventListener('click', () => {
-            if (divElements[0].classList.contains("hidden")) {
-                return
-            } else{
-                sound.play();
-                divElements[0].classList.add("hidden");
-                setTimeout(() => {
-                    divElements[0].style.zIndex = 0; 
-                }, 1250)
-                
-            }                     
-        })    
+        // Play sound automatically on page load
+        sound.play();
     </script>
     <!-- made by murad cajee -->
 </body>
