@@ -75,19 +75,3 @@ body {
     padding: 1em;
     scale: 1.05;
 }
-
-#credit {
-    position: absolute;
-    color: white;
-    opacity: 1;
-    z-index: 4;
-    text-align: center;
-    min-width: 100%;
-    bottom: 0;
-    padding-bottom: 1em;
-}
-
-#creditText {
-    margin: 0;
-    padding: 0;
-}
