@@ -53,6 +53,7 @@ body {
 #socials {
     position: absolute;
     object-position: center center;
+    background-color: rgba(0, 0, 0, 0.451);
     border-radius: 1em;
     padding: 1rem;
     margin: 0;
