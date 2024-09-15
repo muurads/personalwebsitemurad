@@ -11,9 +11,8 @@ body {
     cursor: url('https://tobiasahlin.com/static/cursors/default.png'), auto;
 }
 
-/* Remove or comment out these styles related to the overlay */
 #overlay {
-    display: none; /* Hide overlay if it’s still in HTML */
+    display: table-cell;
     height: 100%;
     width: 100%;
     position: fixed; /* Stay in place */
