@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
 body {
     margin: 0;
     overflow: hidden; /* Hide scrollbars */
     user-select: none;
     user-zoom: none;
-
 }
 
 * {
     cursor: url('https://tobiasahlin.com/static/cursors/default.png'), auto;
-  }
+}
 
+/* Remove or comment out these styles related to the overlay */
 #overlay {
-    display: table-cell;
+    display: none; /* Hide overlay if it’s still in HTML */
     height: 100%;
     width: 100%;
     position: fixed; /* Stay in place */
