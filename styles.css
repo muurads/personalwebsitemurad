@@ -65,13 +65,13 @@ body {
     overflow: hidden;
 }
 
-#x, #ig, #tiktok {
+#x, #ig, #sc {
     padding: 1em;
     height: 4em;
     transition: scale 200ms;
 }
 
-#x:hover, #ig:hover, #tiktok:hover {
+#x:hover, #ig:hover, #sc:hover {
     padding: 1em;
     scale: 1.05;
 }
