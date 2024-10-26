@@ -11,7 +11,7 @@
 <body>
     <!-- made by murad cajee -->
     <div id="overlay" class="hidden"></div> <!-- Removed "click to enter" text -->
-
+    
     <div id="socials">
         <a href="https://twitter.com/muurads" target="_blank">
             <img id="x" src="/assets/x.svg">
@@ -27,37 +27,15 @@
         <p id="creditText">#murad</p>
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
-
-    <!-- Fallback button to start audio manually if autoplay fails -->
-    <button id="startAudioButton" style="display:none;">Start Audio</button>
-
     <script>
-        // Initialize the sound with autoplay parameters
         const sound = new Howl({
             src: ['/assets/audio.mp3'],
             html5: true,
             loop: true
         });
 
-        // Attempt to autoplay sound
-        function tryPlayAudio() {
-            sound.play().then(() => {
-                // Hide the fallback button if autoplay succeeds
-                document.getElementById('startAudioButton').style.display = 'none';
-            }).catch(() => {
-                // Show fallback button if autoplay fails
-                document.getElementById('startAudioButton').style.display = 'block';
-            });
-        }
-
-        // Run the function to attempt autoplay
-        tryPlayAudio();
-
-        // Add click event to fallback button to start audio if autoplay fails
-        document.getElementById('startAudioButton').addEventListener('click', () => {
-            sound.play();
-            document.getElementById('startAudioButton').style.display = 'none'; // Hide button after manual play
-        });
+        // Play the sound automatically
+        sound.play();
 
         // Hide overlay immediately
         const overlay = document.getElementById('overlay');
