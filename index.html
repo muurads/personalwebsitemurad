@@ -10,9 +10,8 @@
 </head>
 <body>
     <!-- made by murad cajee -->
-    <div id="overlay">
-        <p id="entertext">click to enter...</p>
-    </div>
+    <div id="overlay" class="hidden"></div> <!-- Removed "click to enter" text -->
+    
     <div id="socials">
         <a href="https://twitter.com/muurads" target="_blank">
             <img id="x" src="/assets/x.svg">
@@ -29,20 +28,20 @@
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
     <script>
+        // Initialize and autoplay the sound
         const sound = new Howl({
             src: ['/assets/audio.mp3'],
             html5: true,
             loop: true
         });
 
+        // Play the sound automatically
+        sound.play();
+
+        // Hide overlay immediately
         const overlay = document.getElementById('overlay');
-        overlay.addEventListener('click', () => {
-            sound.play();
-            overlay.classList.add('hidden');
-            setTimeout(() => {
-                overlay.style.zIndex = 0; 
-            }, 1250);
-        });
+        overlay.classList.add('hidden');
+        overlay.style.zIndex = 0;
     </script>
     <!-- made by murad cajee -->
 </body>
