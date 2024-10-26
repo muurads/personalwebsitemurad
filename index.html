@@ -27,36 +27,43 @@
         <p id="creditText">#murad</p>
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
+
+    <!-- Fallback button to start audio manually if autoplay fails -->
+    <button id="startAudioButton" style="display:none;">Start Audio</button>
+
     <script>
-        // Initialize the sound as muted to allow autoplay on load
+        // Initialize the sound with autoplay parameters
         const sound = new Howl({
             src: ['/assets/audio.mp3'],
             html5: true,
-            loop: true,
-            volume: 0  // Start muted
+            loop: true
         });
 
-        // Try playing muted sound
-        function tryPlayAudioMuted() {
+        // Attempt to autoplay sound
+        function tryPlayAudio() {
             sound.play().then(() => {
-                // Unmute after short delay to allow browsers to continue playback
-                setTimeout(() => {
-                    sound.volume(1); // Unmute by setting volume back up
-                }, 500);
+                // Hide the fallback button if autoplay succeeds
+                document.getElementById('startAudioButton').style.display = 'none';
             }).catch(() => {
-                // Retry after a short delay if autoplay is blocked
-                setTimeout(tryPlayAudioMuted, 500);
+                // Show fallback button if autoplay fails
+                document.getElementById('startAudioButton').style.display = 'block';
             });
         }
 
-        // Start audio playback attempt
-        tryPlayAudioMuted();
+        // Run the function to attempt autoplay
+        tryPlayAudio();
+
+        // Add click event to fallback button to start audio if autoplay fails
+        document.getElementById('startAudioButton').addEventListener('click', () => {
+            sound.play();
+            document.getElementById('startAudioButton').style.display = 'none'; // Hide button after manual play
+        });
 
         // Hide overlay immediately
         const overlay = document.getElementById('overlay');
         overlay.classList.add('hidden');
         overlay.style.zIndex = 0;
     </script>
-    <!-- made by murad -->
+    <!-- made by murad cajee -->
 </body>
 </html>
