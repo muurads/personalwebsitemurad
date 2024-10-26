@@ -28,15 +28,23 @@
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
     <script>
-        // Initialize and autoplay the sound
+        // Initialize the sound
         const sound = new Howl({
             src: ['/assets/audio.mp3'],
             html5: true,
             loop: true
         });
 
-        // Play the sound automatically
-        sound.play();
+        // Try to autoplay the sound
+        function tryPlayAudio() {
+            sound.play().catch(() => {
+                // Retry after a short delay if autoplay is blocked
+                setTimeout(tryPlayAudio, 500);
+            });
+        }
+
+        // Start audio playback attempt
+        tryPlayAudio();
 
         // Hide overlay immediately
         const overlay = document.getElementById('overlay');
