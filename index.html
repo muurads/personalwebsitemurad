@@ -11,7 +11,7 @@
 <body>
     <!-- made by murad cajee -->
     <div id="overlay" class="hidden"></div> <!-- Removed "click to enter" text -->
-    
+
     <div id="socials">
         <a href="https://twitter.com/muurads" target="_blank">
             <img id="x" src="/assets/x.svg">
@@ -28,29 +28,35 @@
     </div>
     <video id="video-background" src="/assets/background.mp4" autoplay muted loop playsinline></video>
     <script>
-        // Initialize the sound
+        // Initialize the sound as muted to allow autoplay on load
         const sound = new Howl({
             src: ['/assets/audio.mp3'],
             html5: true,
-            loop: true
+            loop: true,
+            volume: 0  // Start muted
         });
 
-        // Try to autoplay the sound
-        function tryPlayAudio() {
-            sound.play().catch(() => {
+        // Try playing muted sound
+        function tryPlayAudioMuted() {
+            sound.play().then(() => {
+                // Unmute after short delay to allow browsers to continue playback
+                setTimeout(() => {
+                    sound.volume(1); // Unmute by setting volume back up
+                }, 500);
+            }).catch(() => {
                 // Retry after a short delay if autoplay is blocked
-                setTimeout(tryPlayAudio, 500);
+                setTimeout(tryPlayAudioMuted, 500);
             });
         }
 
         // Start audio playback attempt
-        tryPlayAudio();
+        tryPlayAudioMuted();
 
         // Hide overlay immediately
         const overlay = document.getElementById('overlay');
         overlay.classList.add('hidden');
         overlay.style.zIndex = 0;
     </script>
-    <!-- made by murad cajee -->
+    <!-- made by murad -->
 </body>
 </html>
